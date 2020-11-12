@@ -10,6 +10,8 @@ namespace commands {
 		void play(int x, int y);
 		void end();
 	private:
+		bool blackTurn;
+		int boardSize = 0;
 		int** a2dGame;
 		void print();
 	};
