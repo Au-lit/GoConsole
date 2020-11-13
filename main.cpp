@@ -1,20 +1,30 @@
 #include <iostream>
 #include <map>
 #include <string>
+#include <functional>
 
 #include "commands.hpp"
 
 #include "rating.hpp"
 using namespace std;
-int main() {	
+int main() {
+    string sInput;
     commands::Game g;
 	g.newin(19);
 	g.play(1, 1);
     g.end();
-	map<string, void*>Commands;
-	string sInput;
-	Commands[sInput];
-	/*cout << a2dGame[][] << endl;*/
+    map<string, function<void()>> Commands=map<string, function<void()>>{
+        {"newGame"s , commands::Game::newin},
+        {"play"s , commands::Game::play }
+    };
+    //map<string, function<void()>> Commands=map<string, function<void()>>{
+    //    {"newGame"s , commands::Game::newin},
+    //    {"play"s , commands::Game::play }
+    //};
+
+    cin >> sInput;
+	//Commands[sInput];
+	//cout << a2dGame[][] << endl;
 	cin.get();
 }
 

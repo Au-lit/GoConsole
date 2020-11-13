@@ -38,8 +38,7 @@ namespace Glicko
         void Apply();
 
         /// Returns the Glicko-1 rating
-        inline double Rating1() const
-        {
+        inline double Rating1() const {
             return (u * Glicko::kScale) + Glicko::kDefaultR;
         }
 

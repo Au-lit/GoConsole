@@ -10,7 +10,7 @@ namespace commands {
 	
 		}
 		void display() {
-	
+		
 		} 
 	}
 	void Game::print() {
@@ -37,7 +37,7 @@ namespace commands {
 	}
 	void Game::end() {
 		Glicko::Rating player(Glicko::kDefaultR, Glicko::kDefaultRD);
-
+		cout << player << endl;
 		Glicko::Rating player1(1400, 30);
 		Glicko::Rating player2(1550, 100);
 
