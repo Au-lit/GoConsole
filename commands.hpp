@@ -1,4 +1,5 @@
 #pragma once
+extern bool exiting;
 namespace commands {
 	namespace rating {
 	void display(std::string);
@@ -10,10 +11,12 @@ namespace commands {
 		void newin(/*int boardDimesion*/);
 		void play(/*int x, int y*/);
 		void end();
+		Game();
 	private:
 		bool blackTurn;
-		int boardSize = 0;
+		int boardSize;
 		int** a2dGame;
 		void print();
 	};
+	inline void quit() { exiting = true; }
 }

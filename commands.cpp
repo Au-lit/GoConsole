@@ -14,6 +14,11 @@ namespace commands {
 		
 		} 
 	}
+	Game::Game() {
+		bool blackTurn = false;
+		int boardSize = 0;
+		int** a2dGame = 0;
+	}
 	void Game::print() {
 		for (int i = 0; i < boardSize; i++) {
 			for (int j = 0; j < boardSize; j++) {
