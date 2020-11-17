@@ -1,4 +1,5 @@
-#include <string>
+#include <iostream>
+#include <array>
 
 #include "commands.hpp"
 
@@ -21,18 +22,29 @@ namespace commands {
 			cout << endl;
 		}
 	}
-	void Game::newin(int boardDimension) {
-		boardSize = boardDimension;
-		a2dGame = new int* [boardDimension];
-		for (int i = 0; i < boardDimension; i++) {
-			a2dGame[i] = new int[boardDimension];
-			for (int j = 0; j < boardDimension; j++) {
+	//TODO: Pour le bot final changer pour prendre l'argument de fonction immédiatement.
+	void Game::newin() {
+		cout << "Enter the board size." << endl;
+		cin >> boardSize;
+		//boardSize = boardDimension;
+		a2dGame = new int* [boardSize];
+		for (int i = 0; i < boardSize; i++) {
+			a2dGame[i] = new int[boardSize];
+			for (int j = 0; j < boardSize; j++) {
 				a2dGame[i][j] = 2;
 			}
 		}
+
 	}
-	void Game::play(int x, int y) {
-		a2dGame[y][x]= blackTurn;
+	//TODO: Pour le bot final changer pour prendre l'argument de fonction immédiatement.
+	void Game::play(/*int x, int y*/) {
+		int x;
+		int y;
+		cout << "Position x" << endl;
+		cin >> x;
+		cout << "Position y" << endl;
+		cin >> y;
+		a2dGame[x][y]= blackTurn;
 		print();
 	}
 	void Game::end() {

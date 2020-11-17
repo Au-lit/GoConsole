@@ -3,11 +3,11 @@
 #define GLICKO_RATING_HPP
 
 #define _USE_MATH_DEFINES
-#include <math.h>
+#include <cmath>
 #include <iostream>
 
 #include "config.hpp"
-
+#define M_PI 3.14159265358979323846
 namespace Glicko
 {
     /// Defines a struct that contains Glicko rating parameters Parameters are
@@ -75,7 +75,7 @@ namespace Glicko
         /// Computes the value of the g function for a rating
         inline double G() const
         {
-            double scale = p / M_PI;
+            double scale = p / double (M_PI);
             return 1.0 / sqrt(1.0 + 3.0 * scale * scale);
         }
 
@@ -83,7 +83,7 @@ namespace Glicko
         /// and another rating
         inline double E(const double g, const Rating& rating) const
         {
-            float exponent = -1.0 * g * (rating.u - u);
+            double exponent = -1.0 * g * (rating.u - u);
             return 1.0 / (1.0 + exp(exponent));
         }
 

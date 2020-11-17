@@ -6,8 +6,9 @@ namespace commands {
 	}
 	class Game {
 	public:
-		void newin(int boardDimesion);
-		void play(int x, int y);
+		//TODO: Pour le bot final changer pour prendre l'argument de fonction immédiatement.
+		void newin(/*int boardDimesion*/);
+		void play(/*int x, int y*/);
 		void end();
 	private:
 		bool blackTurn;
