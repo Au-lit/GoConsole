@@ -2,28 +2,27 @@
 #include <array>
 #include <functional>
 #include <map>
+#include <vector>
 //import std.core;
 
 #include "commands.hpp"
 
 #include "rating.hpp"
-using namespace std;
+
 bool exiting = false;
 int main() {
+    using namespace std;
     string sInput;
     commands::Game g;
     g.Game::Game();
-	//g.newin();
-	//g.play();
- //   g.end();
     map<string, function<void()>> Commands;
     Commands.emplace("end"s , [&g]() {g.end(); });
     Commands.emplace("newGame"s, [&g]() {g.newin(); });
     Commands.emplace("play"s, [&g]() {g.play(); });
-    Commands.emplace("exit"s, [&]() {commands::quit; });
+    Commands.emplace("exit"s, [&]() {commands::quit(); });
     while(!exiting) {
-        cin >> sInput;
-	    Commands[sInput];
+        cin >> sInput; 
+        Commands[sInput];
     }
     cout << "program exiting" << endl;
     return 0;
