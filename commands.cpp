@@ -22,7 +22,7 @@ namespace commands {
 		boardSize = 0;
 		a2dGame = 0;
 		current = 0;
-		Recorder;
+		//Recorder;
 	}
 	void Game::print() {
 		for (int i = 0; i < boardSize; i++) {
@@ -46,7 +46,8 @@ namespace commands {
 		}
 		//cout << "Record game? [Y]es/[N]o" << endl;
 		//cin >> internalInput;
-		Recorder.clear();
+		//if ()
+		//Recorder.clear();
 	}
 	void Game::pass() {
 		blackTurn = !blackTurn;
@@ -64,7 +65,7 @@ namespace commands {
 		print();
 		a2dGame[x][y] = blackTurn;
 		current++;
-		Recorder.emplace(current, blackTurn, x, y);
+		//Recorder.emplace(current, blackTurn, x, y);
 	}
 	void Game::end() {
 		Glicko::Rating player(Glicko::kDefaultR, Glicko::kDefaultRD);

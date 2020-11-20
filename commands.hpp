@@ -21,7 +21,7 @@ namespace commands {
 		int** a2dGame;
 		int current;
 		void print();
-		map<int, bool, xyPos> Recorder;
+		//map<int, bool, xyPos> Recorder;
 	};
 	inline void quit() { exiting = true; }
 }

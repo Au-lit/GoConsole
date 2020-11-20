@@ -15,15 +15,15 @@ int main() {
     string sInput;
     commands::Game g;
     g.Game::Game();
-    map<string, function<void()>> Commands;
+    map<string, function<void(void)>> Commands;
     Commands.emplace("end"s , [&g]() {g.end(); });
     Commands.emplace("newGame"s, [&g]() {g.newin(); });
     Commands.emplace("play"s, [&g]() {g.play(); });
     Commands.emplace("exit"s, [&]() {commands::quit(); });
-    while(!exiting) {
+    //while(!exiting) {
         cin >> sInput; 
-        Commands[sInput];
-    }
+        Commands["play"s, [&]() {g.play(); }];
+    //}
     cout << "program exiting" << endl;
     return 0;
 }
