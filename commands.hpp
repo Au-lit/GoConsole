@@ -6,12 +6,13 @@ namespace commands {
 	void display(std::string);
 	void display();
 	}
+	void help(int page);
 	class Game {
 	public:
 		//TODO: Pour le bot final changer pour prendre l'argument de fonction immédiatement.
 		void newin(/*int boardDimesion*/);
 		void pass();
-		void play(/*int x, int y*/);
+		int play(/*int x, int y*/);
 		void end();
 		Game();
 	private:

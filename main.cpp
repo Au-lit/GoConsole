@@ -1,5 +1,4 @@
 #include <iostream>
-#include <array>
 #include <functional>
 #include <map>
 #include <vector>
@@ -15,15 +14,21 @@ int main() {
     string sInput;
     commands::Game g;
     g.Game::Game();
-    map<string, function<void(void)>> Commands;
+    map<string, function<void()>> Commands;
     Commands.emplace("end"s , [&g]() {g.end(); });
     Commands.emplace("newGame"s, [&g]() {g.newin(); });
     Commands.emplace("play"s, [&g]() {g.play(); });
     Commands.emplace("exit"s, [&]() {commands::quit(); });
-    //while(!exiting) {
-        cin >> sInput; 
-        Commands["play"s, [&]() {g.play(); }];
-    //}
+    while(!exiting) {
+        cin >> sInput;
+        //if (Commands.find(sInput) == Commands.end());
+        try {
+            Commands.find(sInput) != Commands.end() ? Commands[sInput]():throw Commands;
+            //Commands[sInput]();
+        }
+        catch(map<string, function<void() >> tr) {
+            cerr << sInput << " is not a command." << endl;}
+    }
     cout << "program exiting" << endl;
     return 0;
 }

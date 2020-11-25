@@ -1,5 +1,4 @@
 #include <iostream>
-#include <array>
 #include <vector>
 #include <string>
 #include <map>
@@ -17,11 +16,12 @@ namespace commands {
 		
 		} 
 	}
+	void help(int page) {
+	}
 	Game::Game() {
 		blackTurn = false;
 		boardSize = 0;
-		a2dGame = 0;
-		current = 0;
+		current = 1;
 		//Recorder;
 	}
 	void Game::print() {
@@ -36,7 +36,6 @@ namespace commands {
 	void Game::newin() {//boardSize = boardDimension;
 		cout << "Enter the board size." << endl;
 		cin >> boardSize;
-		boardSize++;
 		a2dGame = new int* [boardSize];
 		for (int i = 0; i < boardSize; i++) {
 			a2dGame[i] = new int[boardSize];
@@ -48,24 +47,25 @@ namespace commands {
 		//cin >> internalInput;
 		//if ()
 		//Recorder.clear();
+		blackTurn = false;
 	}
 	void Game::pass() {
 		blackTurn = !blackTurn;
 		print();//?
 	}
 	//TODO: Pour le bot final changer pour prendre l'argument de fonction immédiatement.
-	void Game::play(/*int x, int y*/) {
-		int x;
-		int y;
+	int Game::play(/*int x, int y*/) {
+		int x, y;
 		cout << "Position x" << endl;
 		cin >> x;
 		cout << "Position y" << endl;
 		cin >> y;
-		a2dGame[x][y] = blackTurn + 2;
+		a2dGame[x][y] = blackTurn + 3;
 		print();
 		a2dGame[x][y] = blackTurn;
 		current++;
 		//Recorder.emplace(current, blackTurn, x, y);
+		return x, y;//ici uniquement pour embellir
 	}
 	void Game::end() {
 		Glicko::Rating player(Glicko::kDefaultR, Glicko::kDefaultRD);
