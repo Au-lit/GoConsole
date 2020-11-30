@@ -21,10 +21,10 @@
     <ClCompile Include="main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="commands.cpp">
+    <ClCompile Include="rating.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="rating.cpp">
+    <ClCompile Include="commands.ixx">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -33,9 +33,6 @@
       <Filter>Fichiers sources</Filter>
     </ClInclude>
     <ClInclude Include="rating.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="commands.hpp">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
   </ItemGroup>

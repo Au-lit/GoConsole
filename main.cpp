@@ -1,35 +1,23 @@
-#include <iostream>
-#include <functional>
-#include <map>
-#include <vector>
-//import std.core;
-
-#include "commands.hpp"
-
-#include "rating.hpp"
-
+import std.core;
+import commands;
+//#include "rating.hpp"
 bool exiting = false;
 int main() {
     using namespace std;
     string sInput;
     commands::Game g;
-    g.Game::Game();
     map<string, function<void()>> Commands;
     Commands.emplace("end"s , [&g]() {g.end(); });
     Commands.emplace("newGame"s, [&g]() {g.newin(); });
     Commands.emplace("play"s, [&g]() {g.play(); });
-    Commands.emplace("exit"s, [&]() {commands::quit(); });
+    Commands.emplace("exit"s, [&]() { exiting = true; });
+    Commands.emplace("pass"s, [&g]() {g.pass(); });
     while(!exiting) {
         cin >> sInput;
-        //if (Commands.find(sInput) == Commands.end());
-        try {
-            Commands.find(sInput) != Commands.end() ? Commands[sInput]():throw Commands;
-            //Commands[sInput]();
-        }
-        catch(map<string, function<void() >> tr) {
-            cerr << sInput << " is not a command." << endl;}
+        try {Commands[sInput]();}
+        catch(...) {cerr << sInput << " is not a command." << endl;}
     }
-    cout << "program exiting" << endl;
+    cout << "Program exiting." << endl;
     return 0;
 }
 
