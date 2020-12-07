@@ -21,19 +21,11 @@
     <ClCompile Include="main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="rating.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="commands.ixx">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="config.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="rating.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
+    <None Include=".gitattributes" />
   </ItemGroup>
 </Project>

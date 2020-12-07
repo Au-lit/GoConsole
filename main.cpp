@@ -1,17 +1,28 @@
-import std.core;
-import commands;
+//import std.core;
+#include <map>
+#include <iostream>
+#include <functional>
+#include <string>
+#include <vector>
+#include <array>
+
+//#include "\include\sleepy_discord\sleepy_discord.h"
 //#include "rating.hpp"
-bool exiting = false;
+
+import commands;
+
 int main() {
     using namespace std;
+    bool exiting = false;
     string sInput;
     commands::Game g;
     map<string, function<void()>> Commands;
-    Commands.emplace("end"s , [&g]() {g.end(); });
+    Commands.emplace("end"s, [&g]() {g.end(); });
     Commands.emplace("newGame"s, [&g]() {g.newin(); });
     Commands.emplace("play"s, [&g]() {g.play(); });
-    Commands.emplace("exit"s, [&]() { exiting = true; });
+    Commands.emplace("exit"s, [&]() {exiting = true; });
     Commands.emplace("pass"s, [&g]() {g.pass(); });
+    Commands.emplace("help"s, [&]() {commands::help(); });
     while(!exiting) {
         cin >> sInput;
         try {Commands[sInput]();}
