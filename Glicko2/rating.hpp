@@ -2,12 +2,12 @@
 #ifndef GLICKO_RATING_HPP
 #define GLICKO_RATING_HPP
 
-#define _USE_MATH_DEFINES
+//#define _USE_MATH_DEFINES
 #include <cmath>
 #include <iostream>
 
 #include "config.hpp"
-#define M_PI 3.14159265358979323846
+constexpr auto M_PI = 3.14159265358979323846;
 namespace Glicko
 {
     /// Defines a struct that contains Glicko rating parameters Parameters are
@@ -43,27 +43,16 @@ namespace Glicko
         }
 
         /// Returns the Glicko-1 deviation
-        inline double Deviation1() const
-        {
-            return p * Glicko::kScale;
-        }
+        inline double Deviation1() const { return p * Glicko::kScale; }
 
         /// Returns the Glicko-2 rating
-        inline double Rating2() const
-        {
-            return u;
-        }
+        inline double Rating2() const { return u; }
 
         /// Returns the Glicko-2 deviation
-        inline double Deviation2() const
-        {
-            return p;
-        }
+        inline double Deviation2() const { return p; }
 
         /// Outputs the rating in Glicko-1 fromat
-        friend inline std::ostream& operator<<(std::ostream& pStream,
-            const Rating& pRating)
-        {
+        friend inline std::ostream& operator<<(std::ostream& pStream, const Rating& pRating) {
             pStream << "[" << pRating.Rating1()
                 << ":" << pRating.Deviation1()
                 << "]";
@@ -73,16 +62,14 @@ namespace Glicko
 
     private:
         /// Computes the value of the g function for a rating
-        inline double G() const
-        {
+        inline double G() const {
             double scale = p / double (M_PI);
             return 1.0 / sqrt(1.0 + 3.0 * scale * scale);
         }
 
         /// Computes the value of the e function in terms of a g function value
         /// and another rating
-        inline double E(const double g, const Rating& rating) const
-        {
+        inline double E(const double g, const Rating& rating) const {
             double exponent = -1.0 * g * (rating.u - u);
             return 1.0 / (1.0 + exp(exponent));
         }

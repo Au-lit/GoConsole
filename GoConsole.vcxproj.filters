@@ -24,8 +24,25 @@
     <ClCompile Include="commands.ixx">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Glicko2\rating.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="utility.ixx">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="goRules.ixx">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitattributes" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Glicko2\config.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Glicko2\rating.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
